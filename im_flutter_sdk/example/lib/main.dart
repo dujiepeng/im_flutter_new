@@ -32,8 +32,8 @@ class _MyAppState extends State<MyApp> {
             ListTile(onTap: init, title: const Text('init')),
             ListTile(onTap: login, title: const Text('login')),
             ListTile(onTap: logout, title: const Text('logout')),
-            ListTile(onTap: init, title: const Text('init')),
-            ListTile(onTap: init, title: const Text('init')),
+            ListTile(onTap: sendMessage, title: const Text('sendMessage')),
+            ListTile(onTap: loadMessage, title: const Text('loadMessage')),
           ],
         )),
       ),
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       'identifier',
       EMChatEventHandler(
         onMessagesReceived: (messages) {
-          debugPrint('onMessagesReceived');
+          debugPrint('onMessagesReceived ${messages.first.body}');
         },
       ),
     );
@@ -71,6 +71,7 @@ class _MyAppState extends State<MyApp> {
 
   login() async {
     await EMClient.getInstance.loginWithPassword('du001', '1');
+    debugPrint("login success");
   }
 
   logout() async {
@@ -83,5 +84,16 @@ class _MyAppState extends State<MyApp> {
       targetId: 'du002',
     );
     await EMClient.getInstance.chatManager.sendMessage(message);
+  }
+
+  loadMessage() async {
+    EMConversation? conv =
+        await EMClient.getInstance.chatManager.getConversation('du002');
+    if (conv != null) {
+      List<EMMessage> messages = await conv.loadMessages();
+      for (EMMessage message in messages) {
+        debugPrint('message: ${message.body}');
+      }
+    }
   }
 }

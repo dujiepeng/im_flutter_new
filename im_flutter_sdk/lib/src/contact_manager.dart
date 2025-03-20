@@ -1,4 +1,4 @@
-import 'package:im_flutter_sdk/im_flutter_sdk.dart';
+import 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart';
 
 /// ~english
 /// The contact manager class, which manages chat contacts such as adding, deleting, retrieving, and modifying contacts.

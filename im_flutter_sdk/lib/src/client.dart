@@ -1,4 +1,5 @@
 import 'package:im_flutter_sdk/im_flutter_sdk.dart';
+import 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart';
 
 /// ~english
 /// The EMClient class, which is the entry point of the Chat SDK.

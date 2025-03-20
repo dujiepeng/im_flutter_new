@@ -1,4 +1,4 @@
-import 'package:im_flutter_sdk/im_flutter_sdk.dart';
+import 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart';
 
 /// ~english
 /// The chat room manager class, which manages user joining and exiting the chat room, retrieving the chat room list, and managing member privileges.
