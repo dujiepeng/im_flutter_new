@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1001,8 +1002,18 @@ public class ChatManagerWrapper extends Wrapper implements MethodCallHandler {
 
     private void modifyMessage(JSONObject params, String channelName, Result result) throws JSONException {
         String msgId = params.optString("msgId");
-        EMTextMessageBody body = MessageBodyHelper.textBodyFromJson(params.optJSONObject("body"));
-        EMClient.getInstance().chatManager().asyncModifyMessage(msgId, body, new EMValueWrapperCallBack<EMMessage>(result, channelName) {
+        EMTextMessageBody body = MessageBodyHelper.textBodyFromJson(params.optJSONObject("msgBody"));
+        Map<String, Object> ext = new HashMap<>();
+        if(params.has("attributes")) {
+            JSONObject data = params.getJSONObject("attributes");
+            Iterator iterator = data.keys();
+            while (iterator.hasNext()) {
+                String key = iterator.next().toString();
+                ext.put(key, data.get(key));
+            }
+        }
+
+        EMClient.getInstance().chatManager().asyncModifyMessage(msgId, body, ext, new EMValueWrapperCallBack<EMMessage>(result, channelName) {
             @Override
             public void onSuccess(EMMessage object) {
                 updateObject(MessageHelper.toJson(object));

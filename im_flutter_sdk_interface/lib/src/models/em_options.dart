@@ -373,6 +373,8 @@ class EMOptions {
   ///
   final bool workPathCopiable;
 
+  final Map<String, dynamic>? _extSettings;
+
   final EMPushConfig _pushConfig = EMPushConfig();
 
   @Deprecated('Use [EMPushManager.bindDeviceToken] instead.')
@@ -735,6 +737,7 @@ class EMOptions {
     bool regardImportMessagesAsRead = false,
     bool workPathCopiable = false,
     String? loginExtension,
+    Map<String, dynamic>? extSettings,
   }) : this._(
           appId: appId,
           autoLogin: autoLogin,
@@ -766,6 +769,7 @@ class EMOptions {
           regardImportMessagesAsRead: regardImportMessagesAsRead,
           workPathCopiable: workPathCopiable,
           loginExtension: loginExtension,
+          extSettings: extSettings,
         );
 
   /// ~english
@@ -988,6 +992,7 @@ class EMOptions {
     bool regardImportMessagesAsRead = false,
     bool workPathCopiable = false,
     String? loginExtension,
+    Map<String, dynamic>? extSettings,
   }) : this._(
           appKey: appKey,
           autoLogin: autoLogin,
@@ -1019,6 +1024,7 @@ class EMOptions {
           regardImportMessagesAsRead: regardImportMessagesAsRead,
           workPathCopiable: workPathCopiable,
           loginExtension: loginExtension,
+          extSettings: extSettings,
         );
 
   @Deprecated('Use [EMOptions.withAppKey] instead.')
@@ -1307,7 +1313,8 @@ class EMOptions {
     this.regardImportMessagesAsRead = false,
     this.workPathCopiable = false,
     this.loginExtension,
-  });
+    Map<String, dynamic>? extSettings,
+  }) : _extSettings = extSettings;
 
   Map toJson() {
     Map data = {};
@@ -1348,6 +1355,7 @@ class EMOptions {
     data["usingHttpsOnly"] = usingHttpsOnly;
     data["pushConfig"] = _pushConfig.toJson();
     data["areaCode"] = chatAreaCode;
+    data.putIfNotNull('extSettings', _extSettings);
 
     // 481
     data.putIfNotNull('loginExtensionInfo', loginExtension);
@@ -1388,6 +1396,7 @@ class EMOptions {
     bool? sortMessageByServerTime,
     bool? messagesReceiveCallbackIncludeSend,
     bool? regardImportMessagesAsRead,
+    Map<String, dynamic>? extSettings,
   }) {
     return EMOptions._(
       appKey: appKey,
@@ -1427,6 +1436,12 @@ class EMOptions {
       regardImportMessagesAsRead:
           regardImportMessagesAsRead ?? this.regardImportMessagesAsRead,
       loginExtension: loginExtension,
+      extSettings: extSettings,
     );
   }
+}
+
+class ExtSettings {
+  static String kAppIDForOhOS = 'appIDForOhOS';
+  static String kDisableIosEnterBackground = 'disableIosEnterBackground';
 }

@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
             ListTile(onTap: logout, title: const Text('logout')),
             ListTile(onTap: sendMessage, title: const Text('sendMessage')),
             ListTile(onTap: loadMessage, title: const Text('loadMessage')),
+            ListTile(onTap: modifyMessage, title: const Text('modifyMessage')),
           ],
         )),
       ),
@@ -65,7 +66,11 @@ class _MyAppState extends State<MyApp> {
   }
 
   init() async {
-    await EMClient.getInstance.init(EMOptions.withAppKey('easemob#easeim'));
+    await EMClient.getInstance.init(
+      EMOptions.withAppKey('easemob#easeim', extSettings: {
+        ExtSettings.kDisableIosEnterBackground: false,
+      }),
+    );
     _addMessageListener();
   }
 
@@ -95,5 +100,20 @@ class _MyAppState extends State<MyApp> {
         debugPrint('message: ${message.body}');
       }
     }
+  }
+
+  modifyMessage() async {
+    List cons = await EMClient.getInstance.chatManager.loadAllConversations();
+    List<EMMessage> list = await cons.first.loadMessages();
+    debugPrint('e: ${list.last.body}');
+    await EMClient.getInstance.chatManager.modifyMessage(
+      messageId: list.last.msgId,
+      msgBody: EMTextMessageBody(content: 'modify'),
+      attributes: {"key": "value"},
+    );
+
+    final msg =
+        await EMClient.getInstance.chatManager.loadMessage(list.last.msgId);
+    debugPrint('modifyMessage: ${msg?.body}, ${msg?.attributes}');
   }
 }

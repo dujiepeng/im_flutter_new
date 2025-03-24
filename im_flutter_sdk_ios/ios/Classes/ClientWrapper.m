@@ -24,6 +24,8 @@
 #import "ListenerHandle.h"
 #import "EnumTools.h"
 
+static NSString *const disableIosEnterBackground = @"disableIosEnterBackground";
+
 @interface ClientWrapper () <EMClientDelegate, EMMultiDevicesDelegate, FlutterPlugin>
 {
     ChatManagerWrapper *_chatManager;
@@ -242,6 +244,31 @@
 }
 
 
+- (void)analyzeExtSettings:(NSDictionary *)param {
+    NSDictionary *extSettings = [EMOptions extSettings:param];
+    if(extSettings[@"disableIosEnterBackground"] == nil || [extSettings[@"disableIosEnterBackground"] boolValue] == NO) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enterBackgroundNotification)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enterForegroundNotification)
+                                                     name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
+    }
+}
+
+
+- (void)enterBackgroundNotification {
+    UIApplication *app = [UIApplication sharedApplication];
+    [EMClient.sharedClient applicationDidEnterBackground:app];
+}
+- (void)enterForegroundNotification {
+    UIApplication *app = [UIApplication sharedApplication];
+    [EMClient.sharedClient applicationWillEnterForeground:app];
+}
+
+
 #pragma mark - Actions
 - (void)initSDKWithDict:(NSDictionary *)param channelName:(NSString *)aChannelName result:(FlutterResult)result {
     
@@ -256,6 +283,7 @@
     }
     
     _options = [EMOptions fromJson:param];
+    [self analyzeExtSettings:param];
 
     [EMClient.sharedClient initializeSDKWithOptions:_options];
 

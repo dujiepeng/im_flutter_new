@@ -42,6 +42,7 @@
     data[@"regardImportMessagesAsRead"] = @(self.regardImportMessagesAsRead);
     // 481
     data[@"loginExtensionInfo"] = self.loginExtensionInfo;
+    
     return data;
 }
 + (EMOptions *)fromJson:(NSDictionary *)aJson {
@@ -92,5 +93,9 @@
     // 4.10
     options.workPathCopiable = [aJson[@"workPathCopiable"] boolValue];
     return options;
+}
+
++ (NSDictionary *)extSettings:(NSDictionary *)aJson {
+    return aJson[@"extSettings"];
 }
 @end

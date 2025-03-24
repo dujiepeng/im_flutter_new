@@ -1,0 +1,128 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "im_flutter_sdk",
+            "cwd": "im_flutter_sdk",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "im_flutter_sdk (profile mode)",
+            "cwd": "im_flutter_sdk",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "im_flutter_sdk (release mode)",
+            "cwd": "im_flutter_sdk",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "im_flutter_sdk_android",
+            "cwd": "im_flutter_sdk_android",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "im_flutter_sdk_android (profile mode)",
+            "cwd": "im_flutter_sdk_android",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "im_flutter_sdk_android (release mode)",
+            "cwd": "im_flutter_sdk_android",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "im_flutter_sdk_interface",
+            "cwd": "im_flutter_sdk_interface",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "im_flutter_sdk_interface (profile mode)",
+            "cwd": "im_flutter_sdk_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "im_flutter_sdk_interface (release mode)",
+            "cwd": "im_flutter_sdk_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "im_flutter_sdk_ios",
+            "cwd": "im_flutter_sdk_ios",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "im_flutter_sdk_ios (profile mode)",
+            "cwd": "im_flutter_sdk_ios",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "im_flutter_sdk_ios (release mode)",
+            "cwd": "im_flutter_sdk_ios",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "im_flutter_sdk_ohos",
+            "cwd": "im_flutter_sdk_ohos",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "im_flutter_sdk_ohos (profile mode)",
+            "cwd": "im_flutter_sdk_ohos",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "im_flutter_sdk_ohos (release mode)",
+            "cwd": "im_flutter_sdk_ohos",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "example",
+            "cwd": "im_flutter_sdk/example",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "example (profile mode)",
+            "cwd": "im_flutter_sdk/example",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "example (release mode)",
+            "cwd": "im_flutter_sdk/example",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

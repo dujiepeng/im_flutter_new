@@ -1753,7 +1753,9 @@ class ChatManagerAndroid extends ChatManager {
   ///
   /// Param [messageId] The ID of the message to modify.
   ///
-  /// Param [msgBody]  The modified message body [EMTextMessageBody].
+  /// Param [msgBody]  The modified message body [EMMessageBody], only [EMTextMessageBody] and [EMCustomMessageBody] are supported.
+  ///
+  /// Param [attributes] The custom attributes of the message.
   ///
   /// **Return** The modified message.
   ///
@@ -1769,7 +1771,9 @@ class ChatManagerAndroid extends ChatManager {
   ///
   /// Param [messageId] 消息实例 ID。
   ///
-  /// Param [msgBody] 文本消息体实例 [EMTextMessageBody]。
+  /// Param [msgBody] 息体实例 [EMMessageBody], 只支持 [EMTextMessageBody], [EMCustomMessageBody]。
+  ///
+  /// Param [attributes] 消息的扩展字段
   ///
   /// **Return** 修改后的消息实例。
   ///
@@ -1778,12 +1782,12 @@ class ChatManagerAndroid extends ChatManager {
   @override
   Future<EMMessage> modifyMessage({
     required String messageId,
-    required EMTextMessageBody msgBody,
+    EMMessageBody? msgBody,
+    Map<String, dynamic>? attributes,
   }) async {
-    Map map = {
-      'msgId': messageId,
-      'body': msgBody.toJson(),
-    };
+    Map map = {'msgId': messageId};
+    map.putIfNotNull('msgBody', msgBody?.toJson());
+    map.putIfNotNull('attributes', attributes);
 
     Map result = await ChatChannel.invokeMethod(
       ChatMethodKeys.modifyMessage,
