@@ -31,6 +31,10 @@ class EMClient {
 
   final EMChatThreadManager chatThreadManager = EMChatThreadManager();
 
+  String? get currentUserId => Client.instance.currentUserId;
+
+  EMOptions? get options => Client.instance.options;
+
   /// ~english
   /// Adds the connection event handler. After calling this method, you can handle new connection events when they arrive.
   ///
