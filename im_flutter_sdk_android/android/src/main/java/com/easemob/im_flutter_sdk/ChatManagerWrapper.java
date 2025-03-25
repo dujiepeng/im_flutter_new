@@ -168,7 +168,7 @@ public class ChatManagerWrapper extends Wrapper implements MethodCallHandler {
                 super.onMethodCall(call, result);
             }
         } catch (JSONException ignored) {
-
+            super.onMethodCall(call, result);
         }
     }
 
@@ -1002,7 +1002,7 @@ public class ChatManagerWrapper extends Wrapper implements MethodCallHandler {
 
     private void modifyMessage(JSONObject params, String channelName, Result result) throws JSONException {
         String msgId = params.optString("msgId");
-        EMTextMessageBody body = MessageBodyHelper.textBodyFromJson(params.optJSONObject("msgBody"));
+        EMMessageBody body = MessageBodyHelper.fromJson(params.optJSONObject("msgBody"));
         Map<String, Object> ext = new HashMap<>();
         if(params.has("attributes")) {
             JSONObject data = params.getJSONObject("attributes");
@@ -1264,7 +1264,7 @@ public class ChatManagerWrapper extends Wrapper implements MethodCallHandler {
         Set<EMMessage.Type> types = new HashSet<>();
         for (int i = 0; i < ja.length(); i++) {
             int iType = ja.getInt(i);
-            types.add(MessageHelper.getTypeFromInt(iType));
+            types.add(EnumTools.messageBodyTypeFromInt(iType));
         }
         long ts = params.getLong("ts");
         int count = params.getInt("count");

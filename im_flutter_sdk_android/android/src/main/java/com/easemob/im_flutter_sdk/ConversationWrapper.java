@@ -122,7 +122,7 @@ public class ConversationWrapper extends Wrapper implements MethodCallHandler{
                 super.onMethodCall(call, result);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            super.onMethodCall(call, result);
         }
     }
 
@@ -422,7 +422,7 @@ public class ConversationWrapper extends Wrapper implements MethodCallHandler{
         Set<EMMessage.Type> types = new HashSet<>();
         for (int i = 0; i < ja.length(); i++) {
             int iType = ja.getInt(i);
-            types.add(MessageHelper.getTypeFromInt(iType));
+            types.add(EnumTools.messageBodyTypeFromInt(iType));
         }
         long ts = params.getLong("ts");
         int count = params.getInt("count");

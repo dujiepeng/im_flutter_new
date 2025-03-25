@@ -173,7 +173,7 @@ public class ClientWrapper extends Wrapper implements MethodCallHandler {
             }
 
         }catch (JSONException ignored) {
-
+            super.onMethodCall(call, result);
         }
     }
 

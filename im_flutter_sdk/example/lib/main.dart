@@ -88,6 +88,7 @@ class _MyAppState extends State<MyApp> {
       content: 'hello',
       targetId: 'du002',
     );
+
     await EMClient.getInstance.chatManager.sendMessage(message);
   }
 
@@ -108,8 +109,8 @@ class _MyAppState extends State<MyApp> {
     debugPrint('e: ${list.last.body}');
     await EMClient.getInstance.chatManager.modifyMessage(
       messageId: list.last.msgId,
-      msgBody: EMTextMessageBody(content: 'modify'),
-      attributes: {"key": "value"},
+      msgBody: EMCustomMessageBody(event: 'test', params: {'key1': 'sdasdas'}),
+      attributes: {"key1": "value3"},
     );
 
     final msg =

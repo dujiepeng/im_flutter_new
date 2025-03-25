@@ -42,7 +42,7 @@ public class UserInfoManagerWrapper extends Wrapper implements MethodCallHandler
                 super.onMethodCall(call, result);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            super.onMethodCall(call, result);
         }
     }
 

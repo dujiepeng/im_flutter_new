@@ -330,83 +330,52 @@ class ChatRoomHelper {
 }
 
 class MessageHelper {
-
-    static Type getTypeFromInt(int iType) {
-        switch (iType) {
-            case 1:
-                return Type.IMAGE;
-            case 2:
-                return Type.VIDEO;
-            case 3:
-                return Type.LOCATION;
-            case 4:
-                return Type.VOICE;
-            case 5:
-                return Type.FILE;
-            case 6:
-                return Type.CMD;
-            case 7:
-                return Type.CUSTOM;
-            case 8:
-                return Type.COMBINE;
-            default:
-                return Type.TXT;
-        }
-    }
-
     static EMMessage fromJson(JSONObject json) throws JSONException {
         EMMessage message = null;
 
         JSONObject bodyJson = json.getJSONObject("body");
+        EMMessageBody body = MessageBodyHelper.fromJson(bodyJson);
         EMMessage.Type type = EnumTools.messageBodyTypeFromInt(bodyJson.getInt("type"));
         EMMessage.Direct direct = EnumTools.messageDirectFromInt(json.getInt("direction"));
         if (direct == EMMessage.Direct.SEND) {
             switch (type) {
                 case TXT: {
                     message = EMMessage.createSendMessage(Type.TXT);
-                    message.addBody(MessageBodyHelper.textBodyFromJson(bodyJson));
                 }
                     break;
                 case IMAGE: {
                     message = EMMessage.createSendMessage(Type.IMAGE);
-                    message.addBody(MessageBodyHelper.imageBodyFromJson(bodyJson));
                 }
                     break;
                 case LOCATION: {
                     message = EMMessage.createSendMessage(Type.LOCATION);
-                    message.addBody(MessageBodyHelper.localBodyFromJson(bodyJson));
                 }
                     break;
                 case VIDEO: {
                     message = EMMessage.createSendMessage(Type.VIDEO);
-                    message.addBody(MessageBodyHelper.videoBodyFromJson(bodyJson));
                 }
                     break;
                 case VOICE: {
                     message = EMMessage.createSendMessage(Type.VOICE);
-                    message.addBody(MessageBodyHelper.voiceBodyFromJson(bodyJson));
                 }
                     break;
                 case FILE: {
                     message = EMMessage.createSendMessage(Type.FILE);
-                    message.addBody(MessageBodyHelper.fileBodyFromJson(bodyJson));
                 }
                     break;
                 case CMD: {
                     message = EMMessage.createSendMessage(Type.CMD);
-                    message.addBody(MessageBodyHelper.cmdBodyFromJson(bodyJson));
                 }
                     break;
                 case CUSTOM: {
                     message = EMMessage.createSendMessage(Type.CUSTOM);
-                    message.addBody(MessageBodyHelper.customBodyFromJson(bodyJson));
                 }
                     break;
                 case COMBINE: {
                     message = EMMessage.createSendMessage(Type.COMBINE);
-                    message.addBody(MessageBodyHelper.combineBodyFromJson(bodyJson));
                 }
             }
+
             if (message != null) {
                 message.setDirection(EMMessage.Direct.SEND);
             }
@@ -414,30 +383,25 @@ class MessageHelper {
             switch (type) {
                 case TXT: {
                     message = EMMessage.createReceiveMessage(Type.TXT);
-                    message.addBody(MessageBodyHelper.textBodyFromJson(bodyJson));
                     break;
                 }
                 case IMAGE: {
                     message = EMMessage.createReceiveMessage(Type.IMAGE);
-                    message.addBody(MessageBodyHelper.imageBodyFromJson(bodyJson));
                     break;
                 }
 
                 case LOCATION: {
                     message = EMMessage.createReceiveMessage(Type.LOCATION);
-                    message.addBody(MessageBodyHelper.localBodyFromJson(bodyJson));
                     break;
                 }
 
                 case VIDEO: {
                     message = EMMessage.createReceiveMessage(Type.VIDEO);
-                    message.addBody(MessageBodyHelper.videoBodyFromJson(bodyJson));
                     break;
                 }
 
                 case VOICE: {
                     message = EMMessage.createReceiveMessage(Type.VOICE);
-                    message.addBody(MessageBodyHelper.voiceBodyFromJson(bodyJson));
                     break;
                 }
                 case FILE: {
@@ -447,18 +411,15 @@ class MessageHelper {
                 }
                 case CMD: {
                     message = EMMessage.createReceiveMessage(Type.CMD);
-                    message.addBody(MessageBodyHelper.cmdBodyFromJson(bodyJson));
                     break;
                 }
                 case CUSTOM: {
                     message = EMMessage.createReceiveMessage(Type.CUSTOM);
-                    message.addBody(MessageBodyHelper.customBodyFromJson(bodyJson));
                     break;
                 }
 
                 case COMBINE: {
                     message = EMMessage.createReceiveMessage(Type.COMBINE);
-                    message.addBody(MessageBodyHelper.combineBodyFromJson(bodyJson));
                     break;
                 }
             }
@@ -466,7 +427,7 @@ class MessageHelper {
                 message.setDirection(EMMessage.Direct.RECEIVE);
             }
         }
-
+        message.setBody(body);
         if (json.has("to")) {
             message.setTo(json.getString("to"));
         }
@@ -628,6 +589,49 @@ class GroupAckHelper {
 
 
  class MessageBodyHelper {
+
+     public static EMMessageBody fromJson(JSONObject bodyJson) throws JSONException {
+         EMMessage.Type type = EnumTools.messageBodyTypeFromInt(bodyJson.getInt("type"));
+         EMMessageBody ret = null;
+         switch (type) {
+             case TXT: {
+                 ret = MessageBodyHelper.textBodyFromJson(bodyJson);
+             }
+             break;
+             case IMAGE: {
+                 ret = MessageBodyHelper.imageBodyFromJson(bodyJson);
+             }
+             break;
+             case LOCATION: {
+                 ret = MessageBodyHelper.localBodyFromJson(bodyJson);
+             }
+             break;
+             case VIDEO: {
+                 ret = MessageBodyHelper.videoBodyFromJson(bodyJson);
+             }
+             break;
+             case VOICE: {
+                 ret = MessageBodyHelper.voiceBodyFromJson(bodyJson);
+             }
+             break;
+             case FILE: {
+                 ret = MessageBodyHelper.fileBodyFromJson(bodyJson);
+             }
+             break;
+             case CMD: {
+                 ret = MessageBodyHelper.cmdBodyFromJson(bodyJson);
+             }
+             break;
+             case CUSTOM: {
+                 ret = MessageBodyHelper.customBodyFromJson(bodyJson);
+             }
+             break;
+             case COMBINE: {
+                 ret = MessageBodyHelper.combineBodyFromJson(bodyJson);
+             }
+         }
+         return ret;
+     }
 
     static Map<String, Object> getParentMap(EMMessageBody body){
         Map<String, Object> data = new HashMap<>();

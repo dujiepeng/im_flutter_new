@@ -94,7 +94,7 @@ public class PushManagerWrapper extends Wrapper implements MethodCallHandler {
                 super.onMethodCall(call, result);
             }
         }catch (JSONException e) {
-
+            super.onMethodCall(call, result);
         }
     }
 

@@ -110,7 +110,7 @@ public class ChatRoomManagerWrapper extends Wrapper implements MethodChannel.Met
                 super.onMethodCall(call, result);
             }
         } catch (JSONException ignored) {
-
+            super.onMethodCall(call, result);
         }
     }
 
