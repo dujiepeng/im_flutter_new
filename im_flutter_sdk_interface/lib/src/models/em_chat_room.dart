@@ -14,7 +14,7 @@ import '../internal/inner_headers.dart';
 /// 如需最新数据，需从服务器获取：[EMChatRoomManager.fetchChatRoomInfoFromServer]。
 /// ~end
 class EMChatRoom {
-  EMChatRoom._private({
+  EMChatRoom({
     required this.roomId,
     this.name,
     this.description,
@@ -37,7 +37,7 @@ class EMChatRoom {
   String toString() => toJson().toString();
 
   factory EMChatRoom.fromJson(Map<String, dynamic> map) {
-    return EMChatRoom._private(
+    return EMChatRoom(
       roomId: map["roomId"],
       name: map["name"],
       description: map["desc"],

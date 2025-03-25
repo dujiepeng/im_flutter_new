@@ -33,7 +33,7 @@ class EMTranslateLanguage {
   /// ~end
   final String languageNativeName;
 
-  EMTranslateLanguage._private({
+  EMTranslateLanguage({
     required this.languageCode,
     required this.languageName,
     required this.languageNativeName,
@@ -43,7 +43,7 @@ class EMTranslateLanguage {
     String code = map["code"];
     String name = map["name"];
     String nativeName = map["nativeName"];
-    return EMTranslateLanguage._private(
+    return EMTranslateLanguage(
       languageCode: code,
       languageName: name,
       languageNativeName: nativeName,

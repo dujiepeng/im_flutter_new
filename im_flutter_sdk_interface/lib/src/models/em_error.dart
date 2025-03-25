@@ -6,7 +6,7 @@
 /// SDK 定义的错误类。
 /// ~end
 class EMError {
-  EMError._private(this.code, this.description);
+  EMError(this.code, this.description);
 
   /// ~english
   /// The error code.
@@ -27,7 +27,7 @@ class EMError {
   final String description;
 
   factory EMError.fromJson(Map map) {
-    return EMError._private(map['code'], map['description']);
+    return EMError(map['code'], map['description']);
   }
 
   static hasErrorFromResult(Map map) {
@@ -36,7 +36,7 @@ class EMError {
     } else {
       try {
         throw (EMError.fromJson(map['error']));
-      // ignore: empty_catches
+        // ignore: empty_catches
       } on Exception {}
     }
   }

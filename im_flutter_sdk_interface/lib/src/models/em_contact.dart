@@ -4,7 +4,7 @@ class EMContact {
   final String userId;
   final String remark;
 
-  EMContact._private(Map map)
+  EMContact(Map map)
       : userId = map["userId"],
         remark = map["remark"];
 
@@ -17,6 +17,6 @@ class EMContact {
   }
 
   factory EMContact.fromJson(Map map) {
-    return EMContact._private(map);
+    return EMContact(map);
   }
 }

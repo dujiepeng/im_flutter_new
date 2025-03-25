@@ -89,7 +89,7 @@ class EMGroupMessageAck {
   final int timestamp;
 
   factory EMGroupMessageAck.fromJson(Map map) {
-    EMGroupMessageAck ack = EMGroupMessageAck._private(
+    EMGroupMessageAck ack = EMGroupMessageAck(
       ackId: map["ack_id"],
       messageId: map["msg_id"] as String,
       from: map["from"] as String,
@@ -101,7 +101,7 @@ class EMGroupMessageAck {
     return ack;
   }
 
-  EMGroupMessageAck._private({
+  EMGroupMessageAck({
     this.ackId,
     required this.messageId,
     required this.from,

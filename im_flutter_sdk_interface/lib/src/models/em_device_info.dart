@@ -8,7 +8,7 @@ import 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart';
 /// 多设备登录信息类。
 /// ~end
 class EMDeviceInfo {
-  EMDeviceInfo._private(
+  EMDeviceInfo(
     this.resource,
     this.deviceUUID,
     this.deviceName,
@@ -24,7 +24,7 @@ class EMDeviceInfo {
   }
 
   factory EMDeviceInfo.fromJson(Map map) {
-    return EMDeviceInfo._private(
+    return EMDeviceInfo(
       map["resource"],
       map["deviceUUID"],
       map["deviceName"],

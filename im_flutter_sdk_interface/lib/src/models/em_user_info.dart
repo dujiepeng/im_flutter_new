@@ -13,7 +13,7 @@ class EMUserInfo {
   /// ~chinese
   /// 创建用户属性。
   /// ~end
-  EMUserInfo._private(
+  EMUserInfo(
     this.userId, {
     this.nickName,
     this.avatarUrl,
@@ -26,7 +26,7 @@ class EMUserInfo {
   });
 
   factory EMUserInfo.fromJson(Map map) {
-    EMUserInfo info = EMUserInfo._private(
+    EMUserInfo info = EMUserInfo(
       map["userId"],
       nickName: map["nickName"],
       avatarUrl: map["avatarUrl"],

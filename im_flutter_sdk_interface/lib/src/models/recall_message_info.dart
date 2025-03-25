@@ -2,7 +2,7 @@ import '../internal/inner_headers.dart';
 
 class RecallMessageInfo {
   factory RecallMessageInfo.fromJson(Map map) {
-    return RecallMessageInfo._(
+    return RecallMessageInfo(
       recallMessageId: map['recallMsgId'],
       recallBy: map['recallBy'],
       conversationId: map['conversationId'],
@@ -19,7 +19,7 @@ class RecallMessageInfo {
     );
   }
 
-  const RecallMessageInfo._({
+  const RecallMessageInfo({
     required this.recallBy,
     required this.recallMessageId,
     this.recallMessage,

@@ -11,7 +11,7 @@ import '../internal/inner_headers.dart';
 /// 如需最新数据，需先从服务器获取：[EMGroupManager.fetchGroupInfoFromServer]。
 /// ~end
 class EMGroup {
-  EMGroup._private({
+  EMGroup({
     required this.groupId,
     this.name,
     this.description,
@@ -365,7 +365,7 @@ class EMGroup {
     bool? isDisabled = map["isDisabled"];
     String? extension = map["ext"];
 
-    return EMGroup._private(
+    return EMGroup(
       groupId: groupId,
       name: name,
       description: description,

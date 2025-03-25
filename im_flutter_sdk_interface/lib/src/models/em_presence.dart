@@ -51,7 +51,7 @@ class EMPresence {
   /// ~end
   Map<String, int>? statusDetails;
 
-  EMPresence._private(
+  EMPresence(
     this.publisher,
     this.statusDescription,
     this.statusDetails,
@@ -65,7 +65,7 @@ class EMPresence {
     int latestTime = map["lastTime"] ?? 0;
     int expiryTime = map["expiryTime"] ?? 0;
     Map<String, int>? statusDetails = map["statusDetails"]?.cast<String, int>();
-    return EMPresence._private(
+    return EMPresence(
         publisher, statusDescription, statusDetails, latestTime, expiryTime);
   }
 }

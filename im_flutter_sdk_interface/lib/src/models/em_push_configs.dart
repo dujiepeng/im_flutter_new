@@ -8,7 +8,7 @@ import '../internal/inner_headers.dart';
 /// 推送设置类。
 /// ~end
 class EMPushConfigs {
-  EMPushConfigs._private({
+  EMPushConfigs({
     this.displayStyle = DisplayStyle.Simple,
     this.displayName,
   });
@@ -32,7 +32,7 @@ class EMPushConfigs {
   final String? displayName;
 
   factory EMPushConfigs.fromJson(Map map) {
-    return EMPushConfigs._private(
+    return EMPushConfigs(
       displayStyle:
           map['pushStyle'] == 0 ? DisplayStyle.Simple : DisplayStyle.Summary,
       displayName: map["displayName"],

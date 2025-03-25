@@ -25,7 +25,7 @@ typedef CursorResultCallback = Object Function(dynamic obj);
 ///   ```
 /// ~end
 class EMCursorResult<T> {
-  EMCursorResult._private(
+  EMCursorResult(
     this.cursor,
     this.data,
   );
@@ -36,7 +36,7 @@ class EMCursorResult<T> {
     for (var element in (map['list'] as List)) {
       list.add(dataItemCallback(element));
     }
-    EMCursorResult<T> result = EMCursorResult<T>._private(map['cursor'], list);
+    EMCursorResult<T> result = EMCursorResult<T>(map['cursor'], list);
 
     return result;
   }

@@ -25,7 +25,7 @@ import '../internal/inner_headers.dart';
 /// ```
 /// ~end
 class EMConversation {
-  EMConversation._private(
+  EMConversation(
     this.id,
     this.type,
     this._ext,
@@ -37,7 +37,7 @@ class EMConversation {
 
   factory EMConversation.fromJson(Map<String, dynamic> map) {
     Map<String, String>? ext = map["ext"]?.cast<String, String>();
-    EMConversation ret = EMConversation._private(
+    EMConversation ret = EMConversation(
       map["convId"],
       EMConversationType.values[map["type"]],
       ext,

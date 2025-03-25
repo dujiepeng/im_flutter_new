@@ -58,7 +58,7 @@ class EMMessageReaction {
   /// ~end
   final List<String> userList;
 
-  EMMessageReaction._private({
+  EMMessageReaction({
     required this.reaction,
     required this.userCount,
     required this.isAddedBySelf,
@@ -71,7 +71,7 @@ class EMMessageReaction {
     bool? isAddedBySelf,
     List<String>? userList,
   }) {
-    return EMMessageReaction._private(
+    return EMMessageReaction(
       reaction: reaction ?? this.reaction,
       userCount: userCount ?? this.userCount,
       isAddedBySelf: isAddedBySelf ?? this.isAddedBySelf,
@@ -89,7 +89,7 @@ class EMMessageReaction {
     if (tmp != null) {
       userList.addAll(tmp);
     }
-    return EMMessageReaction._private(
+    return EMMessageReaction(
       reaction: reaction,
       userCount: count,
       isAddedBySelf: isAddedBySelf,
@@ -142,7 +142,7 @@ class EMMessageReactionEvent {
   /// ~end
   final List<ReactionOperation> operations;
 
-  EMMessageReactionEvent._private({
+  EMMessageReactionEvent({
     required this.conversationId,
     required this.messageId,
     required this.reactions,
@@ -162,7 +162,7 @@ class EMMessageReactionEvent {
       operations.add(ReactionOperation.fromJson(e));
     });
 
-    return EMMessageReactionEvent._private(
+    return EMMessageReactionEvent(
       conversationId: conversationId,
       messageId: messageId,
       reactions: reactions,

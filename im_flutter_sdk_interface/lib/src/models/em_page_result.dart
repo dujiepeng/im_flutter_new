@@ -15,11 +15,11 @@ typedef PageResultCallback = Object Function(dynamic obj);
 /// Param [T] 泛型类型 T。
 /// ~end
 class EMPageResult<T> {
-  EMPageResult._private();
+  EMPageResult();
 
   factory EMPageResult.fromJson(Map map,
       {dataItemCallback = PageResultCallback}) {
-    EMPageResult<T> result = EMPageResult<T>._private();
+    EMPageResult<T> result = EMPageResult<T>();
     result._pageCount = map['count'];
     result._data = [];
 

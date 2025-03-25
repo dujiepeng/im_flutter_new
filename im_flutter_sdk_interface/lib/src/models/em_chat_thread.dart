@@ -89,7 +89,7 @@ class EMChatThread {
   /// ~end
   final EMMessage? lastMessage;
 
-  EMChatThread._private({
+  EMChatThread({
     required this.threadId,
     this.threadName,
     required this.owner,
@@ -118,7 +118,7 @@ class EMChatThread {
       threadName = map["threadName"];
     }
 
-    return EMChatThread._private(
+    return EMChatThread(
       threadId: threadId,
       owner: owner,
       messageId: messageId,
@@ -142,7 +142,7 @@ class EMChatThread {
     int? createAt,
     EMMessage? lastMessage,
   }) {
-    return EMChatThread._private(
+    return EMChatThread(
       threadId: threadId ?? this.threadId,
       threadName: threadName ?? this.threadName,
       owner: owner ?? this.owner,
