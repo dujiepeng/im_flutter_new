@@ -66,6 +66,14 @@ export 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart'
         FetchMessageOptions,
         ReactionOperation,
         RecallMessageInfo,
+        EMMessageReactionEvent,
+        EMGroupInfo,
+        ChatSilentModeResult,
+        EMChatThreadEvent,
+        ChatSilentModeTime,
+        MessagePinInfo,
+        LoginExtensionInfo,
+        MessageSearchOptions,
         ChatAreaCode;
 
 export 'src/chat_manager.dart';

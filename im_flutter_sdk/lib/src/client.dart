@@ -17,6 +17,20 @@ class EMClient {
 
   final EMChatManager chatManager = EMChatManager();
 
+  final EMGroupManager groupManager = EMGroupManager();
+
+  final EMContactManager contactManager = EMContactManager();
+
+  final EMChatRoomManager chatRoomManager = EMChatRoomManager();
+
+  final EMPushManager pushManager = EMPushManager();
+
+  final EMPresenceManager presenceManager = EMPresenceManager();
+
+  final EMUserInfoManager userInfoManager = EMUserInfoManager();
+
+  final EMChatThreadManager chatThreadManager = EMChatThreadManager();
+
   /// ~english
   /// Adds the connection event handler. After calling this method, you can handle new connection events when they arrive.
   ///
