@@ -1,4 +1,3 @@
-
 import 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart';
 import 'package:im_flutter_sdk_android/src/chat_manager_android.dart';
 import 'package:im_flutter_sdk_android/src/chat_room_manager_android.dart';
@@ -8,8 +7,6 @@ import 'package:im_flutter_sdk_android/src/group_manager_android.dart';
 import 'package:im_flutter_sdk_android/src/presence_manager_android.dart';
 import 'package:im_flutter_sdk_android/src/push_manager_android.dart';
 import 'package:im_flutter_sdk_android/src/user_info_manager_android.dart';
-import 'package:im_flutter_sdk_interface/interface/platform_interface/client.dart';
-
 
 class ClientAndroid extends Client {
   static void registerWith() {
