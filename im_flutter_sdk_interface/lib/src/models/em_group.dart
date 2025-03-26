@@ -403,7 +403,10 @@ class EMGroup {
     data.putIfNotNull("isDisabled", isDisabled);
     data.putIfNotNull("isAllMemberMuted", isAllMemberMuted);
     data.putIfNotNull("options", _options?.toJson());
-    data.putIfNotNull("permissionType", permissionType?.index);
+    if (permissionType?.index != null) {
+      data.putIfNotNull("permissionType", (permissionType!.index - 1));
+    }
+
     return data;
   }
 

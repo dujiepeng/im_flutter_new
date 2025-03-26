@@ -60,10 +60,6 @@ export default class EnumTool {
     return type;
   }
 
-  static groupPermissionTypeFromInt(iType: number): GroupPermissionType {
-    return iType;
-  }
-
   static searchDirectionToInt(direction: SearchDirection): number {
     return direction;
   }

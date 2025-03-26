@@ -106,33 +106,14 @@
             return 2;
             break;
         case EMChatroomPermissionTypeNone:
-            return 3;
+            return -1;
             break;
         default:
             break;
     }
-    return 3;
+    return -1;
 }
 
-+(EMChatroomPermissionType)chatRoomPermissionTypeFromInt:(NSInteger)value{
-    switch (value) {
-        case 0:
-            return EMChatroomPermissionTypeMember;
-            break;
-        case 1:
-            return EMChatroomPermissionTypeAdmin;
-            break;
-        case 2:
-            return EMChatroomPermissionTypeOwner;
-            break;
-        case 3:
-            return EMChatroomPermissionTypeNone;
-            break;
-        default:
-            break;
-    }
-    return EMChatroomPermissionTypeNone;
-}
 
 +(NSInteger)groupPermissionTypeToInt:(EMGroupPermissionType)value{
     switch (value) {
@@ -146,32 +127,12 @@
             return 2;
             break;
         case EMGroupPermissionTypeNone:
-            return 3;
+            return -1;
             break;
         default:
             break;
     }
-    return 3;
-}
-
-+(EMGroupPermissionType)groupPermissionTypeFromInt:(NSInteger)value{
-    switch (value) {
-        case 0:
-            return EMGroupPermissionTypeMember;
-            break;
-        case 1:
-            return EMGroupPermissionTypeAdmin;
-            break;
-        case 2:
-            return EMGroupPermissionTypeOwner;
-            break;
-        case 3:
-            return EMGroupPermissionTypeNone;
-            break;
-        default:
-            break;
-    }
-    return EMGroupPermissionTypeNone;
+    return -1;
 }
 
 +(NSInteger)searchDirectionToInt:(EMMessageSearchDirection)value{

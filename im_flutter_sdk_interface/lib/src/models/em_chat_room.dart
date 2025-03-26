@@ -71,7 +71,7 @@ class EMChatRoom {
     data.putIfNotNull("muteList", muteList);
     data.putIfNotNull("announcement", announcement);
     data.putIfNotNull("isAllMemberMuted", isAllMemberMuted);
-    data['permissionType'] = permissionType.index;
+    data['permissionType'] = permissionType.index - 1;
     data.putIfNotNull("isInWhitelist", isInWhitelist);
     data['createTimestamp'] = createTimestamp;
     data['muteExpireTimestamp'] = muteExpireTimestamp;

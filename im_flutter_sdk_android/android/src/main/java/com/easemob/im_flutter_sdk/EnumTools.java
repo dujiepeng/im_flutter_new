@@ -74,10 +74,6 @@ public class EnumTools {
         return ret;
     }
 
-    static EMChatRoomPermissionType chatRoomPermissionTypeFromInt(int iType) {
-        return EMChatRoomPermissionType.values()[iType];
-    }
-
     static int groupPermissionTypeToInt(@NonNull EMGroup.EMGroupPermissionType type) {
         int ret = -1;
         switch (type) {
@@ -88,11 +84,6 @@ public class EnumTools {
         }
         return ret;
     }
-
-    static EMGroup.EMGroupPermissionType groupPermissionTypeFromInt(int iType) {
-        return EMGroup.EMGroupPermissionType.values()[iType];
-    }
-
 
     static int searchDirectionToInt(EMConversation.EMSearchDirection direction) {
         return direction.ordinal();

@@ -11,7 +11,6 @@ export default class EnumTool {
     static chatTypeToInt(type: ChatType): number;
     static chatTypeFromInt(iType: number): ChatType;
     static groupPermissionTypeToInt(type: GroupPermissionType): number;
-    static groupPermissionTypeFromInt(iType: number): GroupPermissionType;
     static searchDirectionToInt(direction: SearchDirection): number;
     static searchDirectionFromInt(iDirection: number): SearchDirection;
     static conversationTypeFromInt(iType: number): ConversationType;

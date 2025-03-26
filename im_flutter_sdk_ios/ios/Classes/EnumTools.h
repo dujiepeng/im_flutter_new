@@ -18,9 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSInteger)chatTypeToInt:(EMChatType)value;
 +(EMChatType)chatTypeFromInt:(NSInteger)value;
 +(NSInteger)chatRoomPermissionTypeToInt:(EMChatroomPermissionType)value;
-+(EMChatroomPermissionType)chatRoomPermissionTypeFromInt:(NSInteger)value;
 +(NSInteger)groupPermissionTypeToInt:(EMGroupPermissionType)value;
-+(EMGroupPermissionType)groupPermissionTypeFromInt:(NSInteger)value;
 +(NSInteger)searchDirectionToInt:(EMMessageSearchDirection)value;
 +(EMMessageSearchDirection)searchDirectionFromInt:(NSInteger)value;
 +(NSInteger)conversationTypeToInt:(EMConversationType)value;
