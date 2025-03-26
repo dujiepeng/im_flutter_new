@@ -339,6 +339,15 @@ enum MessageType {
 /// ~end
 enum EMGroupPermissionType {
   /// ~english
+  /// Unknown.
+  /// ~end
+  ///
+  /// ~chinese
+  /// 未知类型。
+  /// ~end
+  None,
+
+  /// ~english
   /// The regular group member.
   /// ~end
   ///
@@ -364,15 +373,6 @@ enum EMGroupPermissionType {
   /// 群主。
   /// ~end
   Owner,
-
-  /// ~english
-  /// Unknown.
-  /// ~end
-  ///
-  /// ~chinese
-  /// 未知类型。
-  /// ~end
-  None,
 }
 
 /// ~english

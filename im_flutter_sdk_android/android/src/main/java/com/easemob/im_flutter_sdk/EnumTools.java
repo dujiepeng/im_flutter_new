@@ -64,7 +64,14 @@ public class EnumTools {
     }
 
     static int chatRoomPermissionTypeToInt(@NonNull EMChatRoomPermissionType type) {
-        return type.ordinal();
+        int ret = -1;
+        switch (type) {
+            case none: ret = -1;
+            case member: ret =  0;
+            case admin: ret =  1;
+            case owner: ret =  2;
+        }
+        return ret;
     }
 
     static EMChatRoomPermissionType chatRoomPermissionTypeFromInt(int iType) {
@@ -72,7 +79,14 @@ public class EnumTools {
     }
 
     static int groupPermissionTypeToInt(@NonNull EMGroup.EMGroupPermissionType type) {
-        return type.ordinal();
+        int ret = -1;
+        switch (type) {
+            case none: ret = -1;
+            case member: ret =  0;
+            case admin: ret =  1;
+            case owner: ret =  2;
+        }
+        return ret;
     }
 
     static EMGroup.EMGroupPermissionType groupPermissionTypeFromInt(int iType) {
